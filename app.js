@@ -33,7 +33,7 @@ app.use(function(req,res,...args){
     let route = routerMapping[host] || routerMapping['default'];
     console.log(host,route);
     if(route){
-        route(req,res,...args);
+        return route(req,res,...args);
     }
     else {
         res.send(404);

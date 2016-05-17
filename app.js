@@ -1,5 +1,6 @@
 'use strict'
 let fs = require('fs');
+let path = require('path');
 let express = require('express');
 let setting = JSON.parse(fs.readFileSync('./mapping.json'));
 let app = express();
@@ -7,7 +8,7 @@ let app = express();
 let routerInfo = [];
 let routerMapping = {};
 for(var url in setting){
-    let func = require(setting[url]);
+    let func = require(setting[url]).resolve(path.dirname(setting[url]));
     let obj = null;
     for(var i=0;i<routerInfo;i++){
         if(routerInfo[i].func == func){

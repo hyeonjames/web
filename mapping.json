@@ -1,0 +1,5 @@
+{
+    "code404.co.kr" : "./codeweb/app.js",
+    "www.code404.co.kr": "./codeweb/app.js",
+    "default" : "./codeweb/app.js"
+}

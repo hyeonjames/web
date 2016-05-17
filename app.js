@@ -8,6 +8,7 @@ let routerInfo = [];
 let routerMapping = {};
 for(var url in setting){
     let func = require(setting[url]);
+    console.log(url,setting[url],func);
     let obj = null;
     for(var i=0;i<routerInfo;i++){
         if(routerInfo[i].func == func){

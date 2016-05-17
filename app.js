@@ -8,7 +8,6 @@ let routerInfo = [];
 let routerMapping = {};
 for(var url in setting){
     let func = require(setting[url]);
-    console.log(url,setting[url],func);
     let obj = null;
     for(var i=0;i<routerInfo;i++){
         if(routerInfo[i].func == func){
@@ -32,7 +31,7 @@ app.set('view engine','ejs');
 app.use(function(req,res,...args){
     let host = req.get('host');
     let route = routerMapping[host] || routerMapping['default'];
-    
+    console.log(host,route);
     if(route){
         route(req,res,...args);
     }
